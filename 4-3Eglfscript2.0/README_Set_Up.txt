@@ -1,3 +1,6 @@
+
+EDIT: ONLY WORKS WITH WIDESCREEN MONITORS RN (16:9) RATIO. Working on fix for non-widescreen things
+
 1) Must be using NOX on 1280x720 resolution on Windows 64-bit
 	-Sometimes NOX doesnt actually use 1280x720 even if you select it and click apply. If this is the case, 
 	apply a different res and change it back to 1280x720 
@@ -11,10 +14,6 @@
 
 -The script will handel repairing and resupply and restarting any expeditions
 -If you're draggers clear the stage 2 slow PM me so I can increase the delay
--Stop the script by right clicking the script in your tray and click stop
-	-Stopping the script is gay b/c this is basically GBF pokerbot but it controls your mouse more.
+-Stop the script by pressing esc
 -Don't Modify the ______Default.jpg s
 -If you have a potato or bad internet speed, then rip. PM me and maybe i'll impliment custom offsets
-
--I noticed that for some laptops 1280x720 is not actually the same resolution as the intended... 
- this script will work best on a widescreen desktop.
