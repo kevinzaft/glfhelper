@@ -1,6 +1,5 @@
 #include <AutoItConstants.au3>
 #include <MsgBoxConstants.au3>
-#Include "CompareImagesUDF.au3"
 #Include <Methods.au3>
 #include <ScreenCapture.au3>
 #include <WindowsConstants.au3>
@@ -17,7 +16,7 @@ Global $repairButtonDefault = "repairButtonDefault.jpg"
 HotKeySet("{ESC}", "Terminate")
 Func Terminate()
     Exit
- EndFunc
+EndFunc
 
 Func SelectNode0_0_2()
     Local $minCoor[2] = [620 + $emu[0], 350 + $emu[1]]
@@ -70,7 +69,7 @@ For $i = int($runs) To 1 Step -1
     WinActivate("[CLASS:Qt5QWindowIcon]")
     GUICtrlSetData ( $GuiLabel, "Runs Left: " & $i )
 
-    _ScreenCapture_Capture("C:\Users\Speed\Desktop\GFL Script" & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
+    _ScreenCapture_Capture(@WorkingDir & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
     While (not _CompareImages($formationButtonCurrent, $formationButtonDefault))
         RestartLogi()
     WEnd
@@ -94,7 +93,7 @@ For $i = int($runs) To 1 Step -1
         Sleep(Random(3500,4000))
     EndIf
 
-    _ScreenCapture_Capture("C:\Users\Speed\Desktop\GFL Script" & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
+    _ScreenCapture_Capture(@WorkingDir & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
     While (not _CompareImages($formationButtonCurrent, $formationButtonDefault))
         RestartLogi()
     WEnd
@@ -108,7 +107,7 @@ For $i = int($runs) To 1 Step -1
     If Mod($i,2) = 0 Then
         SelectUnit1()
     Else
-        SelectUnit5()
+        SelectUnit3()
     EndIf
     Sleep(Random(1000,2000))
     SelectEchelon2()
@@ -116,7 +115,7 @@ For $i = int($runs) To 1 Step -1
     Echelon2ChangeUnit()
     Sleep(Random(2000,3000))
     If Mod($i,2) = 0 Then
-        SelectUnit5()
+        SelectUnit3()
     Else
         SelectUnit1()
     EndIf
@@ -124,7 +123,7 @@ For $i = int($runs) To 1 Step -1
     ReturnToBaseClick()
     Sleep(Random(4000,4500))
 
-    _ScreenCapture_Capture("C:\Users\Speed\Desktop\GFL Script" & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
+    _ScreenCapture_Capture(@WorkingDir & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
     While (not _CompareImages($formationButtonCurrent, $formationButtonDefault))
         RestartLogi()
     WEnd
@@ -161,7 +160,7 @@ For $i = int($runs) To 1 Step -1
     SelectNode4_0_2()
     Sleep(Random(1000,2500))
     Ok_Execute_End_ButtonClick()
-    Sleep(Random(155000,160000))
+    Sleep(Random(150000,152000))
     Ok_Execute_End_ButtonClick()
     Sleep(Random(14000,15000))
     PlanningModeClick()

@@ -2,6 +2,7 @@
 #include <MsgBoxConstants.au3>
 #include <ScreenCapture.au3>
 #include <WindowsConstants.au3>
+#Include "CompareImagesUDF.au3"
 ;for 1280x720 res
 
 Global $emuLocation = WinGetPos("[CLASS:Qt5QWindowIcon]")
@@ -308,5 +309,27 @@ Func RestartLogi()
     Sleep(Random(500,1000))
     RepeatLogisticConfirmClick()
     Sleep(Random(3500,4000))
-    _ScreenCapture_Capture("C:\Users\Speed\Desktop\GFL Script" & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
+    _ScreenCapture_Capture(@WorkingDir & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
+EndFunc
+
+Func RepairLoop()
+    While (not _CompareImages($repairButtonCurrent, $repairButtonDefault))
+        RepaireButtonClick()
+        Sleep(Random(2500,4000))
+        SelectRepairSlot()
+        Sleep(Random(1500,2000))
+        SelectRepairDoll()
+        Sleep(Random(1000,1500))
+        RepairOkClick()
+        Sleep(Random(1000,1500))
+        SelectQuickRepair()
+        Sleep(Random(1000,1500))
+        RepairResourceCostOkClick()
+        Sleep(Random(1500,2000))
+        ReturnToBaseClick()
+        Sleep(Random(500,1000))
+        ReturnToBaseClick()
+        Sleep(Random(3500,4000))
+        _ScreenCapture_Capture(@WorkingDir & "\repairButtonCurrent.jpg", 835 + $emu[0], 265 + $emu[1], 1015 +$emu[0], 330 +$emu[1])
+    WEnd
 EndFunc

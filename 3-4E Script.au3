@@ -1,6 +1,5 @@
 #include <AutoItConstants.au3>
 #include <MsgBoxConstants.au3>
-#Include "CompareImagesUDF.au3"
 #Include <Methods.au3>
 #include <ScreenCapture.au3>
 #include <WindowsConstants.au3>
@@ -15,7 +14,10 @@ Global $repairButtonCurrent = "repairButtonCurrent.jpg"
 Global $repairButtonDefault = "repairButtonDefault.jpg"
 
 ;[0]=x [1]=y [2]=max x [3]=max y
-
+HotKeySet("{ESC}", "Terminate")
+Func Terminate()
+    Exit
+EndFunc
 
 Global $Dragger = ""
 Func SelectDragger()
@@ -57,33 +59,15 @@ For $i = int($runs) To 1 Step -1
     WinActivate("[CLASS:Qt5QWindowIcon]")
     GUICtrlSetData ( $GuiLabel, "Runs Left: " & $i )
 
-    _ScreenCapture_Capture("C:\Users\Speed\Desktop\GFL Script" & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
+    _ScreenCapture_Capture(@WorkingDir & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
     While (not _CompareImages($formationButtonCurrent, $formationButtonDefault))
         RestartLogi()
     WEnd
 
-    _ScreenCapture_Capture("C:\Users\Speed\Desktop\GFL Script" & "\repairButtonCurrent.jpg", 835 + $emu[0], 265 + $emu[1], 1015 +$emu[0], 330 +$emu[1])
-    While (not _CompareImages($repairButtonCurrent, $repairButtonDefault))
-        RepaireButtonClick()
-        Sleep(Random(2500,4000))
-        SelectRepairSlot()
-        Sleep(Random(1500,2000))
-        SelectRepairDoll()
-        Sleep(Random(1000,1500))
-        RepairOkClick()
-        Sleep(Random(1000,1500))
-        SelectQuickRepair()
-        Sleep(Random(1000,1500))
-        RepairResourceCostOkClick()
-        Sleep(Random(1500,2000))
-        ReturnToBaseClick()
-        Sleep(Random(500,1000))
-        ReturnToBaseClick()
-        Sleep(Random(3500,4000))
-        _ScreenCapture_Capture("C:\Users\Speed\Desktop\GFL Script" & "\repairButtonCurrent.jpg", 835 + $emu[0], 265 + $emu[1], 1015 +$emu[0], 330 +$emu[1])
-    WEnd
+    _ScreenCapture_Capture(@WorkingDir & "\repairButtonCurrent.jpg", 835 + $emu[0], 265 + $emu[1], 1015 +$emu[0], 330 +$emu[1])
+    RepairLoop()
 
-    _ScreenCapture_Capture("C:\Users\Speed\Desktop\GFL Script" & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
+    _ScreenCapture_Capture(@WorkingDir & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
     While (not _CompareImages($formationButtonCurrent, $formationButtonDefault))
         RestartLogi()
     WEnd
@@ -118,7 +102,7 @@ For $i = int($runs) To 1 Step -1
     ReturnToBaseClick()
     Sleep(Random(4000,4500))
 
-    _ScreenCapture_Capture("C:\Users\Speed\Desktop\GFL Script" & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
+    _ScreenCapture_Capture(@WorkingDir & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
     While (not _CompareImages($formationButtonCurrent, $formationButtonDefault))
         RestartLogi()
     WEnd
