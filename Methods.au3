@@ -305,7 +305,7 @@ EndFunc
 
 Func RestartLogi()
     Sleep(Random(4000,4500))
-    MouseClick( $MOUSE_CLICK_LEFT, Random($emu[0]+500, $emu[2]+500), Random($emu[1]-500, $emu[3]-500))
+    SelectRepairSlot()
     Sleep(Random(500,1000))
     RepeatLogisticConfirmClick()
     Sleep(Random(3500,4000))

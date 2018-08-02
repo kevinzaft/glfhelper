@@ -74,24 +74,27 @@ For $i = int($runs) To 1 Step -1
         RestartLogi()
     WEnd
 
-    If Not($counter == 0) And Mod($counter,3) = 0 Then
-        RepaireButtonClick()
-        Sleep(Random(2500,4000))
-        SelectRepairSlot()
-        Sleep(Random(1500,2000))
-        SelectRepairDoll()
-        Sleep(Random(1000,1500))
-        RepairOkClick()
-        Sleep(Random(1000,1500))
-        SelectQuickRepair()
-        Sleep(Random(1000,1500))
-        RepairResourceCostOkClick()
-        Sleep(Random(1500,2000))
-        ReturnToBaseClick()
-        Sleep(Random(500,1000))
-        ReturnToBaseClick()
-        Sleep(Random(3500,4000))
-    EndIf
+    ;~ If Not($counter == 0) And Mod($counter,3) = 0 Then
+    ;~     RepaireButtonClick()
+    ;~     Sleep(Random(2500,4000))
+    ;~     SelectRepairSlot()
+    ;~     Sleep(Random(1500,2000))
+    ;~     SelectRepairDoll()
+    ;~     Sleep(Random(1000,1500))
+    ;~     RepairOkClick()
+    ;~     Sleep(Random(1000,1500))
+    ;~     SelectQuickRepair()
+    ;~     Sleep(Random(1000,1500))
+    ;~     RepairResourceCostOkClick()
+    ;~     Sleep(Random(1500,2000))
+    ;~     ReturnToBaseClick()
+    ;~     Sleep(Random(500,1000))
+    ;~     ReturnToBaseClick()
+    ;~     Sleep(Random(3500,4000))
+    ;~ EndIf
+
+    _ScreenCapture_Capture(@WorkingDir & "\repairButtonCurrent.jpg", 835 + $emu[0], 265 + $emu[1], 1015 +$emu[0], 330 +$emu[1])
+    RepairLoop()
 
     _ScreenCapture_Capture(@WorkingDir & "\formationButtonCurrent.jpg", 1050 + $emu[0], 440 + $emu[1], 1260 +$emu[0], 530 +$emu[1])
     While (not _CompareImages($formationButtonCurrent, $formationButtonDefault))
@@ -160,7 +163,7 @@ For $i = int($runs) To 1 Step -1
     SelectNode4_0_2()
     Sleep(Random(1000,2500))
     Ok_Execute_End_ButtonClick()
-    Sleep(Random(150000,152000))
+    Sleep(Random(140000,142000))
     Ok_Execute_End_ButtonClick()
     Sleep(Random(14000,15000))
     PlanningModeClick()
@@ -174,7 +177,7 @@ For $i = int($runs) To 1 Step -1
     Sleep(Random(1000,2500))
 
     Ok_Execute_End_ButtonClick()
-    Sleep(Random(100000,105000))
+    Sleep(Random(95000,100000))
     Ok_Execute_End_ButtonClick()
     Sleep(Random(11000,12000))
     Ok_Execute_End_ButtonClick()
